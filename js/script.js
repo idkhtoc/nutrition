@@ -39,7 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Timer
 
-    const deadLine = '2022-01-19';
+    const deadLine = '2022-01-21';
 
     function getTimeRemaining(endtime) {
         const total = Date.parse(endtime) - Date.parse(new Date()),
@@ -86,4 +86,33 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     setClock('.timer', deadLine);
+
+    // Modal 
+
+    const modalTriggers = document.querySelectorAll('[data-modal]'),
+          modal = document.querySelector('.modal'),
+          modalClose = document.querySelector('[data-close]');
+
+    function toggleModal(overflow) {
+        modal.classList.toggle('show');
+        document.body.style.overflow = overflow;
+    }
+
+    modalTriggers.forEach(btn => {
+        btn.addEventListener('click', toggleModal, 'hidden');
+    });
+
+    modalClose.addEventListener('click', toggleModal, '');
+    
+    modal.addEventListener('click', event => {
+        if (event.target === modal) {
+            toggleModal('');
+        }
+    });
+
+    document.addEventListener('keydown', key => {
+        if (key.code === 'Escape' && modal.classList.contains('show')) {
+            toggleModal('');
+        }
+    });
 }); 

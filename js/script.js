@@ -133,4 +133,61 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     window.addEventListener('scroll', showModalByScroll);
+
+    // Classes for cards
+
+    class MenuCard {
+        constructor(photoPath, photoAlt, title, descr, price, parentElement) {
+            this.photoPath = photoPath;
+            this.photoAlt = photoAlt;
+            this.title = title;
+            this.descr = descr;
+            this.price = +price;
+            this.parentElement = document.querySelector(parentElement);
+        }
+    
+        setCard(cardId) {
+            this.cardId = cardId;
+
+            const card = this.parentElement.querySelector(`.menu__item:nth-child(${this.cardId})`),
+                  photo = document.createElement('img');
+            
+            photo.src = this.photoPath;
+            photo.alt = this.photoAlt;
+
+            card.querySelector('img').replaceWith(photo);
+            card.querySelector('.menu__item-subtitle').innerHTML = this.title;
+            card.querySelector('.menu__item-descr').innerHTML = this.descr;
+            card.querySelector('.menu__item-total span').innerHTML = this.price;
+        }
+
+        render() {
+            const element = document.createElement('div');
+            element.innerHTML = `
+            <div class="menu__item">
+                <img src=${this.photoPath} alt=${this.photoAlt}>
+                <h3 class="menu__item-subtitle">${this.title}</h3>
+                <div class="menu__item-descr">${this.descr}</div>
+                <div class="menu__item-divider"></div>
+                <div class="menu__item-price">
+                    <div class="menu__item-cost">Цена:</div>
+                    <div class="menu__item-total"><span>${this.price}</span> грн/день</div>
+                </div>
+            </div>`;
+
+            this.parentElement.append(element);    
+        }
+    }
+
+    new MenuCard(
+        'img/tabs/hamburger.jpg',
+        'hamburger',
+        'Меню: "Фаст-Фуд"',
+        `Меню “Фаст-Фуд” - это тщательный подбор ингредиентов: полное отсуствие
+        продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное
+        количество белков за счет тофу и импортных вегетарианских котлет из мяса.`,
+        7000,
+        '.menu .container'
+    ).render();
+
 });  

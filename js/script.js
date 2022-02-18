@@ -328,12 +328,12 @@ window.addEventListener('DOMContentLoaded', () => {
     // Slider
 
     const sliderCounter = document.querySelector('.offer__slider-counter'),
-          slideNumber = sliderCounter.querySelector('#current'),
-          slides = document.querySelectorAll('.offer__slide'),
-          slideMax = slides.length,
-          preSymbol = (slideMax < 10) ? '0' : '';
+          currentSlides = sliderCounter.querySelector('#current'),
+          slides = document.querySelectorAll('.offer__slide');
     
-    sliderCounter.querySelector('#total').innerHTML = preSymbol + slideMax;
+    let slideNumber = +currentSlides.innerHTML;
+
+    sliderCounter.querySelector('#total').innerHTML = ((slides.length < 10) ? '0' : '') + slides.length;
 
     const slideChange = (pos) => {
         slides.forEach((slide, index) => {
@@ -342,23 +342,27 @@ window.addEventListener('DOMContentLoaded', () => {
                 if (index == pos - 1) { slide.classList.add('show'); }
             }
         });
+        slideNumber = pos;
     };
 
     sliderCounter.addEventListener('click', event => {
         if (event.target.classList.contains('offer__slider-prev')) {
-            let nextSlideNumber = +slideNumber.innerHTML.slice(1) - 1;
+            let nextSlideNumber = slideNumber - 1;
 
-            nextSlideNumber = (nextSlideNumber != 0) ? nextSlideNumber : slideMax;
-            slideNumber.innerHTML = preSymbol + nextSlideNumber;
+            nextSlideNumber = (nextSlideNumber != 0) ? nextSlideNumber : slides.length;
+            currentSlides.innerHTML = ((nextSlideNumber < 10) ? '0' : '') + nextSlideNumber;
+            
             slideChange(nextSlideNumber);
         }
         else if (event.target.classList.contains('offer__slider-next')) {
-            let nextSlideNumber = +slideNumber.innerHTML.slice(1) + 1;
+            let nextSlideNumber = slideNumber + 1;
 
-            nextSlideNumber = (nextSlideNumber != slideMax + 1) ? nextSlideNumber : 1;
-            slideNumber.innerHTML = preSymbol + nextSlideNumber;
+            nextSlideNumber = (nextSlideNumber != slides.length + 1) ? nextSlideNumber : 1;
+            currentSlides.innerHTML = ((nextSlideNumber < 10) ? '0' : '') + nextSlideNumber;
 
             slideChange(nextSlideNumber);
         }
     });
+
+    
 });

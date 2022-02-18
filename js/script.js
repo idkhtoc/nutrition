@@ -329,40 +329,87 @@ window.addEventListener('DOMContentLoaded', () => {
 
     const sliderCounter = document.querySelector('.offer__slider-counter'),
           currentSlides = sliderCounter.querySelector('#current'),
-          slides = document.querySelectorAll('.offer__slide');
-    
-    let slideNumber = +currentSlides.innerHTML;
+          slides = document.querySelectorAll('.offer__slide'),
+          slidesWrapper = document.querySelector('.offer__slider-wrapper'),
+          width = parseInt(window.getComputedStyle(slidesWrapper).width),
+          slidesField = document.querySelector('.offer__slider-inner');
 
     sliderCounter.querySelector('#total').innerHTML = ((slides.length < 10) ? '0' : '') + slides.length;
 
-    const slideChange = (pos) => {
-        slides.forEach((slide, index) => {
-            if (slide.classList.contains('show')) { slide.classList.remove('show'); }
-            else {
-                if (index == pos - 1) { slide.classList.add('show'); }
-            }
-        });
-        slideNumber = pos;
-    };
+    // Version 2
+
+    let offset = 0;
+    let slideIndex = 1;
+    
+    slidesField.style.width = 100 * slides.length + '%';
+    slidesField.style.display = 'flex';
+    slidesField.style.transition = '.7s all';
+
+    slidesWrapper.style.overflow = 'hidden';
+
+    slides.forEach(slide => {
+        slide.style.width = width + 'px';
+    });
 
     sliderCounter.addEventListener('click', event => {
         if (event.target.classList.contains('offer__slider-prev')) {
-            let nextSlideNumber = slideNumber - 1;
-
-            nextSlideNumber = (nextSlideNumber != 0) ? nextSlideNumber : slides.length;
-            currentSlides.innerHTML = ((nextSlideNumber < 10) ? '0' : '') + nextSlideNumber;
-            
-            slideChange(nextSlideNumber);
+            if (offset == 0) {
+                offset = width * (slides.length - 1);
+                slideIndex = slides.length;
+            } else {
+                offset -= width;
+                slideIndex--;
+            }
+    
+            slidesField.style.transform = `translateX(-${offset}px)`;
+    
+            currentSlides.innerHTML = ((slideIndex < 10) ? '0' : '') + slideIndex;
         }
         else if (event.target.classList.contains('offer__slider-next')) {
-            let nextSlideNumber = slideNumber + 1;
-
-            nextSlideNumber = (nextSlideNumber != slides.length + 1) ? nextSlideNumber : 1;
-            currentSlides.innerHTML = ((nextSlideNumber < 10) ? '0' : '') + nextSlideNumber;
-
-            slideChange(nextSlideNumber);
+            if (offset == width * (slides.length - 1)) {
+                offset = 0;
+                slideIndex = 1;
+            } else {
+                offset += width; 
+                slideIndex++;
+            }
+    
+            slidesField.style.transform = `translateX(-${offset}px)`;
+    
+            currentSlides.innerHTML = ((slideIndex < 10) ? '0' : '') + slideIndex;
         }
     });
 
-    
+    // Version 1
+
+    // let slideNumber = +currentSlides.innerHTML;
+
+    // const slideChange = (pos) => {
+    //     slides.forEach((slide, index) => {
+    //         if (slide.classList.contains('show')) { slide.classList.remove('show'); }
+    //         else {
+    //             if (index == pos - 1) { slide.classList.add('show'); }
+    //         }
+    //     });
+    //     slideNumber = pos;
+    // };
+
+    // sliderCounter.addEventListener('click', event => {
+    //     if (event.target.classList.contains('offer__slider-prev')) {
+    //         let nextSlideNumber = slideNumber - 1;
+
+    //         nextSlideNumber = (nextSlideNumber != 0) ? nextSlideNumber : slides.length;
+    //         currentSlides.innerHTML = ((nextSlideNumber < 10) ? '0' : '') + nextSlideNumber;
+
+    //         slideChange(nextSlideNumber);
+    //     }
+    //     else if (event.target.classList.contains('offer__slider-next')) {
+    //         let nextSlideNumber = slideNumber + 1;
+
+    //         nextSlideNumber = (nextSlideNumber != slides.length + 1) ? nextSlideNumber : 1;
+    //         currentSlides.innerHTML = ((nextSlideNumber < 10) ? '0' : '') + nextSlideNumber;
+
+    //         slideChange(nextSlideNumber);
+    //     }
+    // });
 });

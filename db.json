@@ -22,21 +22,5 @@
       "price": 21
     }
   ],
-  "requests": [
-    {
-      "name": "Abobus",
-      "phone": "+0291039123",
-      "id": 1
-    },
-    {
-      "name": "asd",
-      "phone": "+0291039123",
-      "id": 2
-    },
-    {
-      "name": "Пупокasdasd",
-      "phone": "asdasd",
-      "id": 3
-    }
-  ]
+  "requests": []
 }

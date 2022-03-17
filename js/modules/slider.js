@@ -1,15 +1,15 @@
-function slider() {
+function slider({container, slide, wrapper, totalCounter, field, currentCounter, slidesCounter, nextArrow, prevArrow}) {
     // Slider
 
-    const sliderCounter = document.querySelector('.offer__slider-counter'),
-        currentSlides = sliderCounter.querySelector('#current'),
-        slider = document.querySelector('.offer__slider'),
-        slides = document.querySelectorAll('.offer__slide'),
-        slidesWrapper = document.querySelector('.offer__slider-wrapper'),
+    const sliderCounter = document.querySelector(currentCounter),
+        currentSlides = sliderCounter.querySelector(slidesCounter),
+        slider = document.querySelector(container),
+        slides = document.querySelectorAll(slide),
+        slidesWrapper = document.querySelector(wrapper),
         width = parseInt(window.getComputedStyle(slidesWrapper).width),
-        slidesField = document.querySelector('.offer__slider-inner');
+        slidesField = document.querySelector(field);
 
-    sliderCounter.querySelector('#total').innerHTML = ((slides.length < 10) ? '0' : '') + slides.length;
+    sliderCounter.querySelector(totalCounter).innerHTML = ((slides.length < 10) ? '0' : '') + slides.length;
 
     // Version 2
 
@@ -47,7 +47,7 @@ function slider() {
     }
 
     sliderCounter.addEventListener('click', event => {
-        if (event.target.classList.contains('offer__slider-prev')) {
+        if (event.target.classList.contains(prevArrow.slice(1))) {
             if (offset == 0) {
                 offset = width * (slides.length - 1);
                 slideIndex = slides.length;
@@ -63,7 +63,7 @@ function slider() {
             dots.forEach(dot => dot.style.opacity = '.5');
             dots[slideIndex - 1].style.opacity = 1;
         }
-        else if (event.target.classList.contains('offer__slider-next')) {
+        else if (event.target.classList.contains(nextArrow.slice(1))) {
             if (offset == width * (slides.length - 1)) {
                 offset = 0;
                 slideIndex = 1;
@@ -133,4 +133,4 @@ function slider() {
     });
 }
 
-module.exports = slider;
+export default slider;

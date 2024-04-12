@@ -10,11 +10,7 @@ HTML5, CSS3, JavaScript
 - Install dependencies: npm install
 - Set up environment variables (e.g., database connection string, API keys)
 
-## License
-This project is licensed under the MIT License.
-
 ---
-
 
 For any inquiries or suggestions, please contact!
 Contributions to the project are welcome!

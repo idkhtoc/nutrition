@@ -5,8 +5,8 @@ This project aims to develop a web application focused on promoting healthy nutr
 HTML5, CSS3, JavaScript
 
 ## Installation and Setup
-- Clone the repository: https://github.com/idkhtoc/nutrition.git
-- Navigate to the project directory: cd nutrition
+- Clone the repository: https://github.com/idkhtoc/nutrition-site.git
+- Navigate to the project directory: cd nutrition-site
 - Install dependencies: npm install
 - Set up environment variables (e.g., database connection string, API keys)
 

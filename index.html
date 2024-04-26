@@ -3,15 +3,13 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Food</title>
-		<link rel="stylesheet" href="css/style.css" />
-	</head>
+	<link href="css/main.css" rel="stylesheet"></head>
 
 	<body>
 		<header class="header">
 			<div class="header__left-block">
 				<div class="header__logo">
-					<img src="icons/logo.svg" alt="Логотип" />
+					<img src="assets/icons/logo.svg" alt="Логотип" />
 				</div>
 				<nav class="header__links">
 					<a href="#" class="header__link">Доставка питания</a>
@@ -28,10 +26,10 @@
 			<div class="sidepanel__text"><span>Социальные сети</span></div>
 			<div class="sidepanel__divider"></div>
 			<a href="#" class="sidepanel__icon">
-				<img src="icons/instagram.svg" alt="instagram" />
+				<img src="assets/icons/instagram.svg" alt="instagram" />
 			</a>
 			<a href="#" class="sidepanel__icon">
-				<img src="icons/facebook.svg" alt="facebook" />
+				<img src="assets/icons/facebook.svg" alt="facebook" />
 			</a>
 		</div>
 
@@ -40,7 +38,7 @@
 			<div class="container">
 				<div class="tabcontainer">
 					<div class="tabcontent">
-						<img src="img/tabs/vegy.jpg" alt="vegy" />
+						<img src="assets/images/tabs/vegy.jpg" alt="vegy" />
 						<div class="tabcontent__descr">
 							Меню "Фитнес" - это новый подход к приготовлению
 							блюд: больше свежих овощей и фруктов. Для людей,
@@ -50,7 +48,7 @@
 						</div>
 					</div>
 					<div class="tabcontent">
-						<img src="img/tabs/elite.jpg" alt="elite" />
+						<img src="assets/images/tabs/elite.jpg" alt="elite" />
 						<div class="tabcontent__descr">
 							Меню “Премиум” - мы используем не только красивый
 							дизайн упаковки, но и качественное исполнение блюд.
@@ -59,7 +57,7 @@
 						</div>
 					</div>
 					<div class="tabcontent">
-						<img src="img/tabs/post.jpg" alt="post" />
+						<img src="assets/images/tabs/post.jpg" alt="post" />
 						<div class="tabcontent__descr">
 							Наше специальное “Постное меню” - это тщательный
 							подбор ингредиентов: полное отсутствие продуктов
@@ -68,7 +66,7 @@
 						</div>
 					</div>
 					<div class="tabcontent">
-						<img src="img/tabs/vegy.jpg" alt="vegy" />
+						<img src="assets/images/tabs/vegy.jpg" alt="vegy" />
 						<div class="tabcontent__descr">
 							Меню "Сбалансированное" - это соответствие вашего
 							рациона всем научным рекомендациям. Мы тщательно
@@ -133,30 +131,39 @@
 				<div class="offer__slider">
 					<div class="offer__slider-counter">
 						<div class="offer__slider-prev">
-							<img src="icons/left.svg" alt="prev" />
+							<img src="assets/icons/left.svg" alt="prev" />
 						</div>
 						<span id="current">01</span>
 						/
 						<span id="total">04</span>
 						<div class="offer__slider-next">
-							<img src="icons/right.svg" alt="next" />
+							<img src="assets/icons/right.svg" alt="next" />
 						</div>
 					</div>
 					<div class="offer__slider-wrapper">
 						<div class="offer__slider-inner">
 							<div class="offer__slide">
 								<!-- +show for slider version 1 -->
-								<img src="img/slider/pepper.jpg" alt="pepper" />
-							</div>
-							<div class="offer__slide">
-								<img src="img/slider/food-12.jpg" alt="food" />
-							</div>
-							<div class="offer__slide">
-								<img src="img/slider/olive-oil.jpg" alt="oil" />
+								<img
+									src="assets/images/slider/pepper.jpg"
+									alt="pepper"
+								/>
 							</div>
 							<div class="offer__slide">
 								<img
-									src="img/slider/paprika.jpg"
+									src="assets/images/slider/food-12.jpg"
+									alt="food"
+								/>
+							</div>
+							<div class="offer__slide">
+								<img
+									src="assets/images/slider/olive-oil.jpg"
+									alt="oil"
+								/>
+							</div>
+							<div class="offer__slide">
+								<img
+									src="assets/images/slider/paprika.jpg"
 									alt="paprika"
 								/>
 							</div>
@@ -283,7 +290,7 @@
 						type="phone"
 						class="order__input"
 					/>
-					<img src="icons/right.svg" alt="right" />
+					<img src="assets/icons/right.svg" alt="right" />
 					<button class="btn btn_dark btn_min">
 						Перезвонить мне
 					</button>
@@ -340,7 +347,7 @@
 					<a href="#" class="link">facebook</a>
 				</div>
 				<div class="pepper">
-					<img src="icons/veg.svg" alt="pepper" />
+					<img src="assets/icons/veg.svg" alt="pepper" />
 				</div>
 				<div class="call">
 					<div class="subtitle">Или позвоните нам</div>
@@ -381,6 +388,5 @@
 		</div>
 
 		<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-		<script src="./js/bundle.js"></script>
-	</body>
+	<script src="js/main.js"></script></body>
 </html>

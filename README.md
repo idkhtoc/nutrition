@@ -1,5 +1,11 @@
-## [Nutrition Site](https://idkhtoc.github.io/nutrition-site/)
-This project aims to develop a web application focused on promoting healthy nutrition habits by providing users with tools to track their daily calorie intake and make informed dietary choices. The website will include features such as a calorie calculator, nutrition information database, meal planning, and educational resources on balanced eating.
+# [Nutrition Site](https://idkhtoc.github.io/nutrition-site/)
+This project aims to develop a web application focused on promoting healthy nutrition habits by providing users with tools to track their daily calorie intake and make informed dietary choices.
+
+## Features
+- Slideshows of food
+- Calorie counter
+- Discount timer
+- Contact forms
 
 ## Technologies Used
 HTML5, CSS3, JavaScript
